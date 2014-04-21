@@ -8,8 +8,8 @@ import (
 )
 
 type Message struct {
-    p string
-    q string
+    P string
+    Q string
 }
 
 func connect(rw http.ResponseWriter,req *http.Request) {
@@ -20,7 +20,7 @@ func connect(rw http.ResponseWriter,req *http.Request) {
   if err != nil {
     fmt.Fprintf(rw,"error")
   }
-  fmt.Fprintf(rw,"p: %s\nq: %s\n",m.p,m.q)
+  fmt.Fprintf(rw,"P: %s\nQ: %s\n",m.P,m.Q)
 }
 
 func main() {
