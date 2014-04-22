@@ -2,6 +2,7 @@ package main
 
 import (
   "fmt"
+  "time"
 )
 
 type Pair struct {
@@ -17,7 +18,8 @@ func connected(pair Pair,id []int) bool {
   return id[pair.p] == id[pair.q]
 }
 
-func union(pair Pair,id []int) []int {
+func union(p chan Pair,id []int) []int {
+  pair := <- p
   if (connected(pair,id)) { return id };
   pid := id[pair.p];
   for i:=0;i<len(id);i++ {
@@ -31,9 +33,13 @@ func main() {
   for i:=0;i<10;i++ {
     id = append(id,i)
   }
-  var p Pair
-  p = Pair{1,2}
-  id = union(p,id)
+  pchan := make(chan Pair,0)
+  go union(pchan,id)
+  p := Pair{1,2}
+  pchan <- p
+
+  time.Sleep(1e9)
+
   // id = union(3,4,id)
   // id = union(2,3,id)
   // id = union(4,5,id)
