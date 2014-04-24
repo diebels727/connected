@@ -1,1 +1,1 @@
-curl -v -X POST -H "Content-Type: application/json" -d '{"P":"source","Q":"target"}' http://localhost:9091/connect
+curl -v -X POST -H "Content-Type: application/json" -d '{"P":"1","Q":"2"}' http://localhost:9091/connect
