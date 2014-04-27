@@ -19,11 +19,13 @@ func connected(pair Pair,id []int) bool {
 }
 
 func union(pair Pair,id []int) []int {
+  // <- ready
   if (connected(pair,id)) { return id };
   pid := id[pair.P];
   for i:=0;i<len(id);i++ {
       if (id[i] == pid) { id[i] = id[pair.Q] };
   }
+  // ready <- true
   return id
 }
 
