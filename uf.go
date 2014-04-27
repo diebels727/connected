@@ -18,8 +18,7 @@ func connected(pair Pair,id []int) bool {
   return id[pair.P] == id[pair.Q]
 }
 
-func union(p chan Pair,id []int) []int {
-  pair := <- p
+func union(pair Pair,id []int) []int {
   if (connected(pair,id)) { return id };
   pid := id[pair.P];
   for i:=0;i<len(id);i++ {
@@ -34,20 +33,23 @@ func union(p chan Pair,id []int) []int {
 //     id = append(id,i)
 //   }
 //   pchan := make(chan Pair,0)
-//   go union(pchan,id)
+//
+//   go func(){
+//     for {
+//       p := <- pchan
+//       fmt.Println("Chan: ",p)
+//       union(p,id)
+//     }
+//   }();
+//
 //   p := Pair{1,2}
 //   pchan <- p
 //
+//   p = Pair{1,7}
+//   pchan <- p
+//
 //   time.Sleep(1e9)
-
-
-  // id = union(3,4,id)
-  // id = union(2,3,id)
-  // id = union(4,5,id)
-  // id = union(6,7,id)
-  // id = union(0,7,id)
-  // id = union(9,8,id)
-  // id = union(7,1,id)
+//
 //   fmt.Println(id)
 // }
 

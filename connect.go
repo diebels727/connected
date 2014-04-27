@@ -6,6 +6,7 @@ import (
   "io/ioutil"
   "fmt"
   "strconv"
+  "time"
 )
 
 type Object struct {
@@ -25,5 +26,14 @@ func Connect(rw http.ResponseWriter,req *http.Request) {
   p,_ := strconv.ParseInt(o.P,10,0)
   q,_ := strconv.ParseInt(o.Q,10,0)
 
+  pair := Pair{int(p),int(q)}
+
+  pchan <- pair
+
+  time.Sleep(1e9)
+
   fmt.Fprintf(rw,"P: %d\nQ: %d\n",p,q)
+  for i:=0;i<len(id);i++ {
+    fmt.Fprintf(rw,"ID: %d\n",id[i])
+  }
 }
