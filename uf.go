@@ -19,13 +19,11 @@ func connected(pair Pair,id []int) bool {
 }
 
 func union(pair Pair,id []int) []int {
-  // <- ready
   if (connected(pair,id)) { return id };
   pid := id[pair.P];
   for i:=0;i<len(id);i++ {
       if (id[i] == pid) { id[i] = id[pair.Q] };
   }
-  // ready <- true
   return id
 }
 
@@ -34,6 +32,7 @@ func union(pair Pair,id []int) []int {
 //   for i:=0;i<10;i++ {
 //     id = append(id,i)
 //   }
+//
 //   pchan := make(chan Pair,0)
 //
 //   go func(){
@@ -54,4 +53,3 @@ func union(pair Pair,id []int) []int {
 //
 //   fmt.Println(id)
 // }
-

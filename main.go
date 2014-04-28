@@ -5,7 +5,6 @@ import (
 )
 
 var pchan chan Pair
-var ready chan bool
 var id []int
 
 func main() {
@@ -13,9 +12,8 @@ func main() {
   for i:=0;i<10;i++ {
     id = append(id,i)
   }
+
   pchan = make(chan Pair,0)
-  // ready = make(chan bool,0)//initial conditions
-  // ready <- true
 
   go func(){
     for {
@@ -25,5 +23,6 @@ func main() {
   }();
 
   http.HandleFunc("/connect",Connect)
+  http.HandleFunc("/connected",Connected)
   http.ListenAndServe(":9091",nil)
 }

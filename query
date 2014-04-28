@@ -1,0 +1,5 @@
+curl -v -X POST -H "Content-Type: application/json" -d '{"P":"2","Q":"3"}' http://localhost:9091/connected
+curl -v -X POST -H "Content-Type: application/json" -d '{"P":"1","Q":"7"}' http://localhost:9091/connected
+curl -v -X POST -H "Content-Type: application/json" -d '{"P":"1","Q":"8"}' http://localhost:9091/connected
+
+
