@@ -24,6 +24,7 @@ func union(pair Pair,id []int) []int {
   for i:=0;i<len(id);i++ {
       if (id[i] == pid) { id[i] = id[pair.Q] };
   }
+  ready <- true
   return id
 }
 

@@ -6,6 +6,7 @@ import (
 
 var pchan chan Pair
 var id []int
+var ready chan bool
 
 func main() {
   id = make([]int,0)
@@ -13,6 +14,7 @@ func main() {
     id = append(id,i)
   }
 
+  ready = make(chan bool,0)
   pchan = make(chan Pair,0)
 
   go func(){

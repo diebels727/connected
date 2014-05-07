@@ -10,6 +10,7 @@ import (
 
 func Connected(rw http.ResponseWriter,req *http.Request) {
   var o Object
+  <- ready
   body, _ := ioutil.ReadAll(req.Body)
   err := json.Unmarshal(body,&o)
   if err != nil {
