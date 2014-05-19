@@ -37,5 +37,13 @@ func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
   if err != nil {
     logger.Panic("[ObjectPostHandler] error converting q")
   }
-  logger.Printf("[ObjectPostHandler] vars: p:%d,q:%d",p,q)
+
+  pair := Pair{int(p),int(q)}
+
+  logger.Printf("[ObjectPostHandler] sending pair on channel ...")
+  pchan <- pair
+  logger.Printf("[ObjectPostHandler] sent pair on channel")
+
+
+  logger.Printf("[ObjectPostHandler] finished")
 }

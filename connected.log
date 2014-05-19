@@ -1,6 +1,4 @@
-2014/05/19 14:43:50 Starting up ...
-2014/05/19 14:43:50 [main] set initial condition for ready state
-2014/05/19 14:43:52 [ObjectPostHandler] called
-2014/05/19 14:43:52 [ObjectPostHandler] body: {"q":"7"}
-2014/05/19 14:43:52 [ObjectPostHandler] object: 7
-2014/05/19 14:43:52 [ObjectPostHandler] vars: p:2,q:7
+2014/05/19 14:50:04 Starting up ...
+2014/05/19 14:50:04 [main] set initial condition for ready state
+2014/05/19 14:50:10 [ObjectPostHandler] called
+2014/05/19 14:50:10 [ObjectPostHandler] sending pair on channel ...
