@@ -1,4 +1,92 @@
-2014/05/19 14:50:04 Starting up ...
-2014/05/19 14:50:04 [main] set initial condition for ready state
-2014/05/19 14:50:10 [ObjectPostHandler] called
-2014/05/19 14:50:10 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:02 Starting up ...
+2014/05/19 14:58:02 [main] Launching main event loop
+2014/05/19 14:58:04 [ObjectPostHandler] called
+2014/05/19 14:58:04 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:04 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:04 [ObjectPostHandler] finished
+2014/05/19 14:58:04 [union] called
+2014/05/19 14:58:06 [ObjectPostHandler] called
+2014/05/19 14:58:06 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:06 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:06 [ObjectPostHandler] finished
+2014/05/19 14:58:06 [union] called
+2014/05/19 14:58:07 [ObjectPostHandler] called
+2014/05/19 14:58:07 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:07 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:07 [ObjectPostHandler] finished
+2014/05/19 14:58:07 [union] called
+2014/05/19 14:58:07 [ObjectPostHandler] called
+2014/05/19 14:58:07 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:07 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:07 [ObjectPostHandler] finished
+2014/05/19 14:58:07 [union] called
+2014/05/19 14:58:07 [ObjectPostHandler] called
+2014/05/19 14:58:07 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:07 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:07 [ObjectPostHandler] finished
+2014/05/19 14:58:07 [union] called
+2014/05/19 14:58:08 [ObjectPostHandler] called
+2014/05/19 14:58:08 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:08 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:08 [ObjectPostHandler] finished
+2014/05/19 14:58:08 [union] called
+2014/05/19 14:58:08 [ObjectPostHandler] called
+2014/05/19 14:58:08 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:08 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:08 [ObjectPostHandler] finished
+2014/05/19 14:58:08 [union] called
+2014/05/19 14:58:08 [ObjectPostHandler] called
+2014/05/19 14:58:08 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:08 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:08 [ObjectPostHandler] finished
+2014/05/19 14:58:08 [union] called
+2014/05/19 14:58:09 [ObjectPostHandler] called
+2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:09 [ObjectPostHandler] finished
+2014/05/19 14:58:09 [union] called
+2014/05/19 14:58:09 [ObjectPostHandler] called
+2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:09 [ObjectPostHandler] finished
+2014/05/19 14:58:09 [union] called
+2014/05/19 14:58:09 [ObjectPostHandler] called
+2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:09 [ObjectPostHandler] finished
+2014/05/19 14:58:09 [union] called
+2014/05/19 14:58:09 [ObjectPostHandler] called
+2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:09 [ObjectPostHandler] finished
+2014/05/19 14:58:09 [union] called
+2014/05/19 14:58:10 [ObjectPostHandler] called
+2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:10 [ObjectPostHandler] finished
+2014/05/19 14:58:10 [union] called
+2014/05/19 14:58:10 [ObjectPostHandler] called
+2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:10 [ObjectPostHandler] finished
+2014/05/19 14:58:10 [union] called
+2014/05/19 14:58:10 [ObjectPostHandler] called
+2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:10 [ObjectPostHandler] finished
+2014/05/19 14:58:10 [union] called
+2014/05/19 14:58:10 [ObjectPostHandler] called
+2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:10 [ObjectPostHandler] finished
+2014/05/19 14:58:10 [union] called
+2014/05/19 14:58:35 [ObjectPostHandler] called
+2014/05/19 14:58:35 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:35 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:35 [ObjectPostHandler] finished
+2014/05/19 14:58:35 [union] called
+2014/05/19 14:58:39 [ObjectPostHandler] called
+2014/05/19 14:58:39 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 14:58:39 [ObjectPostHandler] sent pair on channel
+2014/05/19 14:58:39 [ObjectPostHandler] finished
+2014/05/19 14:58:39 [union] called

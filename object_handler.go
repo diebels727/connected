@@ -39,11 +39,8 @@ func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
   }
 
   pair := Pair{int(p),int(q)}
-
   logger.Printf("[ObjectPostHandler] sending pair on channel ...")
   pchan <- pair
   logger.Printf("[ObjectPostHandler] sent pair on channel")
-
-
   logger.Printf("[ObjectPostHandler] finished")
 }

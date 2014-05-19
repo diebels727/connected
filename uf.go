@@ -20,16 +20,11 @@ func connected(pair Pair,id []int) bool {
 
 func union(pair Pair,id []int) []int {
   logger.Printf("[union] called")
-  logger.Printf("[union] waiting for ready state ...")
-  <- ready
   if (connected(pair,id)) { return id };
   pid := id[pair.P];
   for i:=0;i<len(id);i++ {
       if (id[i] == pid) { id[i] = id[pair.Q] };
   }
-
-  logger.Printf("[union] signaling ready")
-  ready <- true
-  logger.Printf("[union] ready! ")
+  logger.Printf("[union] finished")
   return id
 }

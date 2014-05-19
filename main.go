@@ -30,15 +30,10 @@ func main() {
   pchan = make(chan Pair,0)
 
   go func(){
-    logger.Printf("[main] set initial condition for ready state")
-    ready <- true
     logger.Printf("[main] Launching main event loop")
     for {
-      logger.Printf("[main] Waiting to pull pair from channel ...")
       p := <- pchan
-      logger.Printf("[main] Pulled pair from channel")
       union(p,id)
-      logger.Printf("[main] Executed union")
     }
     logger.Printf("Terminating main event loop ...")
   }();
