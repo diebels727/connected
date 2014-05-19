@@ -1,92 +1,25 @@
-2014/05/19 14:58:02 Starting up ...
-2014/05/19 14:58:02 [main] Launching main event loop
-2014/05/19 14:58:04 [ObjectPostHandler] called
-2014/05/19 14:58:04 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:04 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:04 [ObjectPostHandler] finished
-2014/05/19 14:58:04 [union] called
-2014/05/19 14:58:06 [ObjectPostHandler] called
-2014/05/19 14:58:06 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:06 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:06 [ObjectPostHandler] finished
-2014/05/19 14:58:06 [union] called
-2014/05/19 14:58:07 [ObjectPostHandler] called
-2014/05/19 14:58:07 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:07 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:07 [ObjectPostHandler] finished
-2014/05/19 14:58:07 [union] called
-2014/05/19 14:58:07 [ObjectPostHandler] called
-2014/05/19 14:58:07 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:07 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:07 [ObjectPostHandler] finished
-2014/05/19 14:58:07 [union] called
-2014/05/19 14:58:07 [ObjectPostHandler] called
-2014/05/19 14:58:07 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:07 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:07 [ObjectPostHandler] finished
-2014/05/19 14:58:07 [union] called
-2014/05/19 14:58:08 [ObjectPostHandler] called
-2014/05/19 14:58:08 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:08 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:08 [ObjectPostHandler] finished
-2014/05/19 14:58:08 [union] called
-2014/05/19 14:58:08 [ObjectPostHandler] called
-2014/05/19 14:58:08 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:08 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:08 [ObjectPostHandler] finished
-2014/05/19 14:58:08 [union] called
-2014/05/19 14:58:08 [ObjectPostHandler] called
-2014/05/19 14:58:08 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:08 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:08 [ObjectPostHandler] finished
-2014/05/19 14:58:08 [union] called
-2014/05/19 14:58:09 [ObjectPostHandler] called
-2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:09 [ObjectPostHandler] finished
-2014/05/19 14:58:09 [union] called
-2014/05/19 14:58:09 [ObjectPostHandler] called
-2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:09 [ObjectPostHandler] finished
-2014/05/19 14:58:09 [union] called
-2014/05/19 14:58:09 [ObjectPostHandler] called
-2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:09 [ObjectPostHandler] finished
-2014/05/19 14:58:09 [union] called
-2014/05/19 14:58:09 [ObjectPostHandler] called
-2014/05/19 14:58:09 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:09 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:09 [ObjectPostHandler] finished
-2014/05/19 14:58:09 [union] called
-2014/05/19 14:58:10 [ObjectPostHandler] called
-2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:10 [ObjectPostHandler] finished
-2014/05/19 14:58:10 [union] called
-2014/05/19 14:58:10 [ObjectPostHandler] called
-2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:10 [ObjectPostHandler] finished
-2014/05/19 14:58:10 [union] called
-2014/05/19 14:58:10 [ObjectPostHandler] called
-2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:10 [ObjectPostHandler] finished
-2014/05/19 14:58:10 [union] called
-2014/05/19 14:58:10 [ObjectPostHandler] called
-2014/05/19 14:58:10 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:10 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:10 [ObjectPostHandler] finished
-2014/05/19 14:58:10 [union] called
-2014/05/19 14:58:35 [ObjectPostHandler] called
-2014/05/19 14:58:35 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:35 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:35 [ObjectPostHandler] finished
-2014/05/19 14:58:35 [union] called
-2014/05/19 14:58:39 [ObjectPostHandler] called
-2014/05/19 14:58:39 [ObjectPostHandler] sending pair on channel ...
-2014/05/19 14:58:39 [ObjectPostHandler] sent pair on channel
-2014/05/19 14:58:39 [ObjectPostHandler] finished
-2014/05/19 14:58:39 [union] called
+2014/05/19 15:08:17 Starting up ...
+2014/05/19 15:08:17 [main] Launching main event loop
+2014/05/19 15:08:21 [IsConnectedGetHandler] called
+2014/05/19 15:08:21 [IsConnectedGetHandler] connected result: %!s(bool=false)
+2014/05/19 15:08:21 [IsConnectedGetHandler] vars: map[p:1 q:2]
+2014/05/19 15:08:35 [IsConnectedGetHandler] called
+2014/05/19 15:08:35 [IsConnectedGetHandler] connected result: %!s(bool=false)
+2014/05/19 15:08:35 [IsConnectedGetHandler] vars: map[p:1 q:2]
+2014/05/19 15:09:17 [ObjectPostHandler] called
+2014/05/19 15:09:17 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 15:09:17 [ObjectPostHandler] sent pair on channel
+2014/05/19 15:09:17 [ObjectPostHandler] finished
+2014/05/19 15:09:17 [union] called
+2014/05/19 15:09:17 [union] finished
+2014/05/19 15:09:35 [ObjectPostHandler] called
+2014/05/19 15:09:35 [ObjectPostHandler] sending pair on channel ...
+2014/05/19 15:09:35 [ObjectPostHandler] sent pair on channel
+2014/05/19 15:09:35 [ObjectPostHandler] finished
+2014/05/19 15:09:35 [union] called
+2014/05/19 15:09:51 [IsConnectedGetHandler] called
+2014/05/19 15:09:51 [IsConnectedGetHandler] connected result: %!s(bool=true)
+2014/05/19 15:09:51 [IsConnectedGetHandler] vars: map[p:1 q:3]
+2014/05/19 15:09:57 [IsConnectedGetHandler] called
+2014/05/19 15:09:57 [IsConnectedGetHandler] connected result: %!s(bool=false)
+2014/05/19 15:09:57 [IsConnectedGetHandler] vars: map[p:1 q:7]

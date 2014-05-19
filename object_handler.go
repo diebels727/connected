@@ -19,6 +19,24 @@ func ObjectGetHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectGetHandler] vars: %s",vars)
 }
 
+func IsConnectedGetHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[IsConnectedGetHandler] called")
+  vars := mux.Vars(req)
+  p,err := strconv.ParseInt(vars["p"],10,0)
+  if err != nil {
+    logger.Panic("[IsConnectedGetHandler] error converting p")
+  }
+  q,err := strconv.ParseInt(vars["q"],10,0)
+  if err != nil {
+    logger.Panic("[IsConnectedGetHandler] error converting q")
+  }
+
+  pair := Pair{int(p),int(q)}
+  is_connected := connected(pair,id)
+  logger.Printf("[IsConnectedGetHandler] connected result: %s",is_connected)
+  logger.Printf("[IsConnectedGetHandler] vars: %s",vars)
+}
+
 func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectPostHandler] called")
   var object Object
