@@ -30,7 +30,4 @@ func Connect(rw http.ResponseWriter,req *http.Request) {
   pchan <- pair
 
   fmt.Fprintf(rw,"P: %d\nQ: %d\n",p,q)
-  for i:=0;i<len(id);i++ {
-    fmt.Fprintf(rw,"ID: %d\n",id[i])
-  }
 }
