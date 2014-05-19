@@ -22,4 +22,10 @@ func ObjectGetHandler(rw http.ResponseWriter,req *http.Request) {
 
 func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectPostHandler] called")
+  body := make([]byte, req.ContentLength)
+  vars := mux.Vars(req)
+  req.Body.Read(body)
+  logger.Printf("[ObjectPostHandler] vars: %s",vars)
+  logger.Printf("[ObjectPostHandler] body: %s",body)
+
 }
