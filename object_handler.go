@@ -21,4 +21,5 @@ func ObjectGetHandler(rw http.ResponseWriter,req *http.Request) {
 }
 
 func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[ObjectPostHandler] called")
 }

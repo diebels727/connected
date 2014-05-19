@@ -45,5 +45,6 @@ func main() {
 
   m := mux.NewRouter()
   m.HandleFunc("/object/{p}",ObjectGetHandler).Methods("GET")
+  m.HandleFunc("/object/{p}",ObjectPostHandler).Methods("POST")
   http.ListenAndServe(":9091",m)
 }
