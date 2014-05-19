@@ -14,7 +14,7 @@ type Object struct {
 }
 
 func Connect(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[Connect] called ...")
+  logger.Printf("[Connect] called")
 
   var o Object
   body, _ := ioutil.ReadAll(req.Body)

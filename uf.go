@@ -19,38 +19,17 @@ func connected(pair Pair,id []int) bool {
 }
 
 func union(pair Pair,id []int) []int {
+  logger.Printf("[union] called")
+  logger.Printf("[union] waiting for ready state ...")
+  <- ready
   if (connected(pair,id)) { return id };
   pid := id[pair.P];
   for i:=0;i<len(id);i++ {
       if (id[i] == pid) { id[i] = id[pair.Q] };
   }
+
+  logger.Printf("[union] signaling ready")
   ready <- true
+  logger.Printf("[union] ready! ")
   return id
 }
-
-// func main() {
-//   id := make([]int,0)
-//   for i:=0;i<10;i++ {
-//     id = append(id,i)
-//   }
-//
-//   pchan := make(chan Pair,0)
-//
-//   go func(){
-//     for {
-//       p := <- pchan
-//       fmt.Println("Chan: ",p)
-//       union(p,id)
-//     }
-//   }();
-//
-//   p := Pair{1,2}
-//   pchan <- p
-//
-//   p = Pair{1,7}
-//   pchan <- p
-//
-//   time.Sleep(1e9)
-//
-//   fmt.Println(id)
-// }
