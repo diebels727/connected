@@ -29,10 +29,14 @@ func main() {
   pchan = make(chan Pair,0)
 
   go func(){
+    logger.Printf("[main] Launching main event loop ...")
     for {
+      logger.Printf("[main] Pulling pair from channel ...")
       p := <- pchan
+      logger.Printf("[main] Pulled pair from channel.")
       union(p,id)
     }
+    logger.Printf("Terminating main event loop ...")
   }();
 
   http.HandleFunc("/connect",Connect)
