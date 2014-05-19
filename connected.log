@@ -1,15 +1,6 @@
-2014/05/18 20:33:21 Starting up ...
-2014/05/18 20:33:21 [main] Launching main event loop
-2014/05/18 20:33:21 [main] Waiting to pull pair from channel ...
-2014/05/18 20:33:25 [Connect] called
-2014/05/18 20:33:25 [Connect] beginning to parse integers
-2014/05/18 20:33:25 [Connect] parsed integers
-2014/05/18 20:33:25 [Connect] pushing pair on to channel
-2014/05/18 20:33:25 [Connect] pushed pair on to channel
-2014/05/18 20:33:25 [main] Pulled pair from channel
-2014/05/18 20:33:25 [union] called
-2014/05/18 20:33:25 [union] waiting for ready state ...
-2014/05/18 20:33:38 [Connect] called
-2014/05/18 20:33:38 [Connect] beginning to parse integers
-2014/05/18 20:33:38 [Connect] parsed integers
-2014/05/18 20:33:38 [Connect] pushing pair on to channel
+2014/05/19 09:54:50 Starting up ...
+2014/05/19 09:54:50 [main] set initial condition for ready state
+2014/05/19 09:54:50 [ObjectHandler] called
+2014/05/19 09:54:58 [ObjectHandler] called
+2014/05/19 09:57:23 [ObjectHandler] called
+2014/05/19 09:57:28 [ObjectHandler] called

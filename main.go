@@ -28,7 +28,10 @@ func main() {
   ready = make(chan bool,0)
   pchan = make(chan Pair,0)
 
+
   go func(){
+    logger.Printf("[main] set initial condition for ready state")
+    ready <- true
     logger.Printf("[main] Launching main event loop")
     for {
       logger.Printf("[main] Waiting to pull pair from channel ...")
@@ -42,5 +45,6 @@ func main() {
 
   http.HandleFunc("/connect",Connect)
   http.HandleFunc("/connected",Connected)
+  http.HandleFunc("/object",ObjectHandler)
   http.ListenAndServe(":9091",nil)
 }
