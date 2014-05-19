@@ -1,6 +1,8 @@
-2014/05/19 09:54:50 Starting up ...
-2014/05/19 09:54:50 [main] set initial condition for ready state
-2014/05/19 09:54:50 [ObjectHandler] called
-2014/05/19 09:54:58 [ObjectHandler] called
-2014/05/19 09:57:23 [ObjectHandler] called
-2014/05/19 09:57:28 [ObjectHandler] called
+2014/05/19 11:19:44 Starting up ...
+2014/05/19 11:19:44 [main] set initial condition for ready state
+2014/05/19 11:19:47 [ObjectGetHandler] called
+2014/05/19 11:19:47 [ObjectGetHandler] vars: map[p:7]
+2014/05/19 11:19:49 [ObjectGetHandler] called
+2014/05/19 11:19:49 [ObjectGetHandler] vars: map[p:7]
+2014/05/19 11:19:55 [ObjectGetHandler] called
+2014/05/19 11:19:55 [ObjectGetHandler] vars: map[p:7]

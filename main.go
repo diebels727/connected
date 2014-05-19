@@ -1,6 +1,7 @@
 package main
 
 import (
+  "github.com/gorilla/mux"
   "net/http"
   "os"
   "log"
@@ -28,7 +29,6 @@ func main() {
   ready = make(chan bool,0)
   pchan = make(chan Pair,0)
 
-
   go func(){
     logger.Printf("[main] set initial condition for ready state")
     ready <- true
@@ -43,8 +43,7 @@ func main() {
     logger.Printf("Terminating main event loop ...")
   }();
 
-  http.HandleFunc("/connect",Connect)
-  http.HandleFunc("/connected",Connected)
-  http.HandleFunc("/object",ObjectHandler)
-  http.ListenAndServe(":9091",nil)
+  m := mux.NewRouter()
+  m.HandleFunc("/object/{p}",ObjectGetHandler).Methods("GET")
+  http.ListenAndServe(":9091",m)
 }
