@@ -1,8 +1,6 @@
-2014/05/19 12:07:16 Starting up ...
-2014/05/19 12:07:16 [main] set initial condition for ready state
-2014/05/19 12:07:18 [ObjectPostHandler] called
-2014/05/19 12:07:18 [ObjectPostHandler] vars: map[p:2]
-2014/05/19 12:07:18 [ObjectPostHandler] body: {"q":"7"}
-2014/05/19 12:07:23 [ObjectPostHandler] called
-2014/05/19 12:07:23 [ObjectPostHandler] vars: map[p:2]
-2014/05/19 12:07:23 [ObjectPostHandler] body: {"q":"7"}
+2014/05/19 14:43:50 Starting up ...
+2014/05/19 14:43:50 [main] set initial condition for ready state
+2014/05/19 14:43:52 [ObjectPostHandler] called
+2014/05/19 14:43:52 [ObjectPostHandler] body: {"q":"7"}
+2014/05/19 14:43:52 [ObjectPostHandler] object: 7
+2014/05/19 14:43:52 [ObjectPostHandler] vars: p:2,q:7

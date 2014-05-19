@@ -3,10 +3,9 @@ package main
 import (
   "net/http"
   "github.com/gorilla/mux"
-  // "encoding/json"
-  // "io/ioutil"
-  // "fmt"
-  // "strconv"
+  "encoding/json"
+  "io/ioutil"
+  "strconv"
 )
 
 type Object struct {
@@ -22,10 +21,21 @@ func ObjectGetHandler(rw http.ResponseWriter,req *http.Request) {
 
 func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectPostHandler] called")
-  body := make([]byte, req.ContentLength)
+  var object Object
+  body, _ := ioutil.ReadAll(req.Body)
   vars := mux.Vars(req)
-  req.Body.Read(body)
-  logger.Printf("[ObjectPostHandler] vars: %s",vars)
-  logger.Printf("[ObjectPostHandler] body: %s",body)
-
+  //Parse JSON
+  err := json.Unmarshal(body,&object)
+  if err != nil {
+    logger.Panic("[ObjectPostHandler] error in JSON")
+  }
+  p,err := strconv.ParseInt(vars["p"],10,0)
+  if err != nil {
+    logger.Panic("[ObjectPostHandler] error converting p")
+  }
+  q,err := strconv.ParseInt(object.Q,10,0)
+  if err != nil {
+    logger.Panic("[ObjectPostHandler] error converting q")
+  }
+  logger.Printf("[ObjectPostHandler] vars: p:%d,q:%d",p,q)
 }
