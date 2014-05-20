@@ -6,6 +6,7 @@ import (
   "encoding/json"
   "io/ioutil"
   "strconv"
+  "fmt"
 )
 
 type Object struct {
@@ -15,8 +16,29 @@ type Object struct {
 
 func ObjectGetHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectGetHandler] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
   vars := mux.Vars(req)
   logger.Printf("[ObjectGetHandler] vars: %s",vars)
+
+  var hsh map[string][]Object
+  var objects []Object
+  hsh = make(map[string][]Object)
+  for p,q := range ids {
+    objects = append(objects,Object{strconv.Itoa(p),strconv.Itoa(q)})
+  }
+  hsh["objects"] = objects
+
+  response,err := json.Marshal(&hsh)
+
+  if err != nil {
+    logger.Panic("Cannot marshal!")
+  }
+
+  logger.Printf("[ObjectGetHandler] %s",response)
+
+  fmt.Fprintf(rw,"{\"object\": { \"id\":\"2\" } }")
+
+  logger.Printf("[ObjectGetHandler] finished")
 }
 
 func IsConnectedGetHandler(rw http.ResponseWriter,req *http.Request) {
@@ -32,7 +54,7 @@ func IsConnectedGetHandler(rw http.ResponseWriter,req *http.Request) {
   }
 
   pair := Pair{int(p),int(q)}
-  is_connected := connected(pair,id)
+  is_connected := connected(pair,ids)
   logger.Printf("[IsConnectedGetHandler] connected result: %s",is_connected)
   logger.Printf("[IsConnectedGetHandler] vars: %s",vars)
 }

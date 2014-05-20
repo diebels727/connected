@@ -10,21 +10,21 @@ type Pair struct {
   Q int
 }
 
-func find(p int,id []int) int {
-  return id[p]
+func find(p int,ids []int) int {
+  return ids[p]
 }
 
-func connected(pair Pair,id []int) bool {
-  return id[pair.P] == id[pair.Q]
+func connected(pair Pair,ids []int) bool {
+  return ids[pair.P] == ids[pair.Q]
 }
 
-func union(pair Pair,id []int) []int {
+func union(pair Pair,ids []int) []int {
   logger.Printf("[union] called")
-  if (connected(pair,id)) { return id };
-  pid := id[pair.P];
-  for i:=0;i<len(id);i++ {
-      if (id[i] == pid) { id[i] = id[pair.Q] };
+  if (connected(pair,ids)) { return ids };
+  pid := ids[pair.P];
+  for i:=0;i<len(ids);i++ {
+      if (ids[i] == pid) { ids[i] = ids[pair.Q] };
   }
   logger.Printf("[union] finished")
-  return id
+  return ids
 }

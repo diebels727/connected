@@ -11,7 +11,7 @@ const (
   LOG_FORMAT = 3
 )
 
-var id []int
+var ids []int
 var ready chan bool
 var pchan chan Pair
 var log_file *os.File
@@ -22,9 +22,9 @@ func main() {
   logger = log.New(log_file,"",LOG_FORMAT)
   logger.Printf("Starting up ...")
 
-  id = make([]int,0)
+  ids = make([]int,0)
   for i:=0;i<10;i++ {
-    id = append(id,i)
+    ids = append(ids,i)
   }
   ready = make(chan bool,0)
   pchan = make(chan Pair,0)
@@ -33,14 +33,14 @@ func main() {
     logger.Printf("[main] Launching main event loop")
     for {
       p := <- pchan
-      union(p,id)
+      union(p,ids)
     }
     logger.Printf("Terminating main event loop ...")
   }();
 
   m := mux.NewRouter()
-  m.HandleFunc("/object/{p}",ObjectGetHandler).Methods("GET")
-  m.HandleFunc("/object/{p}/object/{q}",IsConnectedGetHandler).Methods("GET")
-  m.HandleFunc("/object/{p}",ObjectPostHandler).Methods("POST")
+  m.HandleFunc("/objects/{p}",ObjectGetHandler).Methods("GET")
+  m.HandleFunc("/objects/{p}/objects/{q}",IsConnectedGetHandler).Methods("GET")
+  m.HandleFunc("/objects/{p}",ObjectPostHandler).Methods("POST")
   http.ListenAndServe(":9091",m)
 }
