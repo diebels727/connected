@@ -64,7 +64,9 @@ func IsConnectedGetHandler(rw http.ResponseWriter,req *http.Request) {
 
 func TempPostHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[TempPostHandler] called")
+  rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
+  rw.Header().Set("Origin","http://localhost:9091")
   logger.Printf("[TempPostHandler] finished")
 }
 
