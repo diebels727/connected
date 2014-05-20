@@ -7,6 +7,7 @@ import (
   "io/ioutil"
   "strconv"
   "fmt"
+  "strings"
 )
 
 type Object struct {
@@ -14,30 +15,32 @@ type Object struct {
   Q string
 }
 
-func ObjectGetHandler(rw http.ResponseWriter,req *http.Request) {
+type ResponseObject struct {
+  Id string
+  P string
+}
+
+func ObjectsGetHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectGetHandler] called")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
-  vars := mux.Vars(req)
-  logger.Printf("[ObjectGetHandler] vars: %s",vars)
 
-  var hsh map[string][]Object
-  var objects []Object
-  hsh = make(map[string][]Object)
-  for p,q := range ids {
-    objects = append(objects,Object{strconv.Itoa(p),strconv.Itoa(q)})
+  //Ugly, but working
+  var hsh map[string][]ResponseObject
+  var objects []ResponseObject
+  hsh = make(map[string][]ResponseObject)
+  for id,p := range ids {
+    objects = append(objects,ResponseObject{strconv.Itoa(id),strconv.Itoa(p)})
   }
   hsh["objects"] = objects
 
   response,err := json.Marshal(&hsh)
-
   if err != nil {
     logger.Panic("Cannot marshal!")
   }
+  rsp := strings.ToLower(string(response))
+  //end ugly
 
-  logger.Printf("[ObjectGetHandler] %s",response)
-
-  fmt.Fprintf(rw,"{\"object\": { \"id\":\"2\" } }")
-
+  fmt.Fprintf(rw,rsp)
   logger.Printf("[ObjectGetHandler] finished")
 }
 
@@ -59,8 +62,23 @@ func IsConnectedGetHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[IsConnectedGetHandler] vars: %s",vars)
 }
 
+func TempPostHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[TempPostHandler] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
+  logger.Printf("[TempPostHandler] finished")
+}
+
+func OptionsPostHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[OptionsPostHandler] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
+  rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+  logger.Printf("[OptionsPostHandler] %s",rw.Header())
+}
+
+
 func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectPostHandler] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
   var object Object
   body, _ := ioutil.ReadAll(req.Body)
   vars := mux.Vars(req)

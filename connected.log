@@ -1,6 +1,10 @@
-2014/05/20 11:26:09 Starting up ...
-2014/05/20 11:26:09 [main] Launching main event loop
-2014/05/20 11:26:14 [ObjectGetHandler] called
-2014/05/20 11:26:14 [ObjectGetHandler] vars: map[p:2]
-2014/05/20 11:26:14 [ObjectGetHandler] {"objects":[{"P":"0","Q":"0"},{"P":"1","Q":"1"},{"P":"2","Q":"2"},{"P":"3","Q":"3"},{"P":"4","Q":"4"},{"P":"5","Q":"5"},{"P":"6","Q":"6"},{"P":"7","Q":"7"},{"P":"8","Q":"8"},{"P":"9","Q":"9"}]}
-2014/05/20 11:26:14 [ObjectGetHandler] finished
+2014/05/20 13:43:06 Starting up ...
+2014/05/20 13:43:06 [main] Launching main event loop
+2014/05/20 13:43:09 [OptionsPostHandler] called
+2014/05/20 13:43:09 [OptionsPostHandler] map[Access-Control-Allow-Origin:[*] Access-Control-Allow-Headers:[Origin, X-Requested-With, Content-Type, Accept]]
+2014/05/20 13:43:09 [TempPostHandler] called
+2014/05/20 13:43:09 [TempPostHandler] finished
+2014/05/20 13:46:16 [OptionsPostHandler] called
+2014/05/20 13:46:16 [OptionsPostHandler] map[Access-Control-Allow-Origin:[*] Access-Control-Allow-Headers:[Origin, X-Requested-With, Content-Type, Accept]]
+2014/05/20 13:46:16 [TempPostHandler] called
+2014/05/20 13:46:16 [TempPostHandler] finished
