@@ -98,9 +98,16 @@ func PostRecordsHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[TempPostHandler] finished")
 }
 
+func UpdateRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[UpdateRecords] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
+  logger.Printf("[UpdateRecords] finished")
+}
+
 func OptionsRecordsHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[OptionsRecordsHandler] called")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+  rw.Header().Set("Access-Control-Allow-Methods","PUT")
   logger.Printf("[OptionsRecordsHandler] %s",rw.Header())
 }
