@@ -1,23 +1,18 @@
-2014/05/21 10:59:05 Starting up ...
-2014/05/21 10:59:05 [main] Launching main event loop
-2014/05/21 10:59:12 [OptionsPostHandler] called
-2014/05/21 10:59:12 [OptionsPostHandler] map[Access-Control-Allow-Origin:[*] Access-Control-Allow-Headers:[Origin, X-Requested-With, Content-Type, Accept]]
-2014/05/21 10:59:12 [TempPostHandler] called
-2014/05/21 10:59:12 [TempPostHandler] parsed p: %!s(int64=3) and q: %!s(int64=2)
-2014/05/21 10:59:12 [TempPostHandler] sending pair on channel ...
-2014/05/21 10:59:12 [TempPostHandler] sent pair on channel
-2014/05/21 10:59:12 [TempPostHandler] finished
-2014/05/21 10:59:12 [union] called
-2014/05/21 10:59:12 [union] finished
-2014/05/21 10:59:50 [IsConnectedGetHandler] called
-2014/05/21 10:59:50 [IsConnectedGetHandler] connected result: %!s(bool=true)
-2014/05/21 10:59:50 [IsConnectedGetHandler] vars: map[p:3 q:2]
-2014/05/21 10:59:59 [IsConnectedGetHandler] called
-2014/05/21 10:59:59 [IsConnectedGetHandler] connected result: %!s(bool=false)
-2014/05/21 10:59:59 [IsConnectedGetHandler] vars: map[p:3 q:7]
-2014/05/21 11:00:03 [IsConnectedGetHandler] called
-2014/05/21 11:00:03 [IsConnectedGetHandler] connected result: %!s(bool=true)
-2014/05/21 11:00:03 [IsConnectedGetHandler] vars: map[p:3 q:3]
-2014/05/21 11:00:08 [IsConnectedGetHandler] called
-2014/05/21 11:00:08 [IsConnectedGetHandler] connected result: %!s(bool=true)
-2014/05/21 11:00:08 [IsConnectedGetHandler] vars: map[p:2 q:3]
+2014/05/21 13:04:04 Starting up ...
+2014/05/21 13:04:04 [main] Launching main event loop
+2014/05/21 13:04:12 [ObjectGetHandler] called
+2014/05/21 13:04:12 [ObjectGetHandler] finished
+2014/05/21 13:05:14 [ObjectGetHandler] called
+2014/05/21 13:05:14 [ObjectGetHandler] finished
+2014/05/21 13:06:53 [ObjectGetHandler] called
+2014/05/21 13:06:53 [ObjectGetHandler] finished
+2014/05/21 13:08:02 [ObjectGetHandler] called
+2014/05/21 13:08:02 [ObjectGetHandler] finished
+2014/05/21 13:11:06 [ObjectGetHandler] called
+2014/05/21 13:11:06 [ObjectGetHandler] finished
+2014/05/21 13:11:30 [ObjectGetHandler] called
+2014/05/21 13:11:30 [ObjectGetHandler] finished
+2014/05/21 13:13:02 [ObjectGetHandler] called
+2014/05/21 13:13:02 [ObjectGetHandler] finished
+2014/05/21 13:21:36 [ObjectGetHandler] called
+2014/05/21 13:21:36 [ObjectGetHandler] finished

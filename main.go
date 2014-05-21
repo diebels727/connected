@@ -42,6 +42,7 @@ func main() {
   m.HandleFunc("/objects",ObjectsGetHandler).Methods("GET")
   m.HandleFunc("/objects/{p}/objects/{q}",IsConnectedGetHandler).Methods("GET")
   m.HandleFunc("/objects/{p}",ObjectPostHandler).Methods("POST")
+  m.HandleFunc("/objects/{p}",TempObjectsGetHandler).Methods("GET")
   m.HandleFunc("/objects",TempPostHandler).Methods("POST")
   m.HandleFunc("/objects",OptionsPostHandler).Methods("OPTIONS")
 

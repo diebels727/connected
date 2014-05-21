@@ -24,6 +24,12 @@ type ResponseObject struct {
   P string
 }
 
+func TempObjectsGetHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[TempObjectsGetHandler] called")
+
+  logger.Printf("[TempObjectsGetHandler] finished")
+}
+
 func ObjectsGetHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ObjectGetHandler] called")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
