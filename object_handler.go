@@ -73,28 +73,25 @@ func PostRecordsHandler(rw http.ResponseWriter,req *http.Request) {
   rw.Header().Set("Access-Control-Allow-Origin", "*")
   //TODO: localhost should not be statically defined; but this works for localhost testing
   rw.Header().Set("Origin","http://localhost:9091")
-
   var parse_record ParseRecord
   body, _ := ioutil.ReadAll(req.Body)
   err := json.Unmarshal(body,&parse_record)
   if err != nil {
     logger.Panic("[PostRecordsHandler] error in JSON: %s",err)
   }
-
   id,err := strconv.ParseInt(parse_record.Record.Id,10,0)
   if err != nil {
     logger.Panic("[PostRecordsHandler] error converting id: %s",err)
   }
   value,err := strconv.ParseInt(parse_record.Record.Value,10,0)
   if err != nil {
-    logger.Panic("[TempPostHandler] error converting value: %s",err)
+    logger.Panic("[PostRecordsHandler] error converting value: %s",err)
   }
-
   pair := Pair{int(id),int(value)}
-  logger.Printf("[TempPostHandler] parsed id: %s and value: %s",id,value)
-  logger.Printf("[TempPostHandler] sending pair on channel ...")
+  logger.Printf("[PostRecordsHandler] parsed id: %s and value: %s",id,value)
+  logger.Printf("[PostRecordsHandler] sending pair on channel ...")
   pchan <- pair
-  logger.Printf("[TempPostHandler] sent pair on channel")
+  logger.Printf("[PostRecordsHandler] sent pair on channel")
 
   fmt.Fprintf(rw,"{}") //empty content response; ember seemed to complain
 
