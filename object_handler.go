@@ -101,6 +101,29 @@ func PostRecordsHandler(rw http.ResponseWriter,req *http.Request) {
 func UpdateRecordsHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[UpdateRecords] called")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
+  vars := mux.Vars(req)
+  id_string := vars["id"]
+
+  var parse_record ParseRecord
+  body, _ := ioutil.ReadAll(req.Body)
+  err := json.Unmarshal(body,&parse_record)
+  if err != nil {
+    logger.Panic("[UpdateRecordsHandler] error in JSON: %s",err)
+  }
+
+  id,err := strconv.ParseInt(id_string,10,0)
+  if err != nil {
+    logger.Panic("[UpdateRecordsHandler] error converting id: %s",err)
+  }
+  value,err := strconv.ParseInt(parse_record.Record.Value,10,0)
+  if err != nil {
+    logger.Panic("[UpdateRecordsHandler] error converting value: %s",err)
+  }
+  pair := Pair{int(id),int(value)}
+  logger.Printf("[UpdateRecordsHandler] parsed id: %s and value: %s",id,value)
+  logger.Printf("[UpdateRecordsHandler] sending pair on channel ...")
+  pchan <- pair
+  logger.Printf("[UpdateRecordsHandler] sent pair on channel")
   logger.Printf("[UpdateRecords] finished")
 }
 
