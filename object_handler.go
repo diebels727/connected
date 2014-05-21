@@ -67,6 +67,26 @@ func TempPostHandler(rw http.ResponseWriter,req *http.Request) {
   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
   rw.Header().Set("Origin","http://localhost:9091")
+  var object Object
+  body, _ := ioutil.ReadAll(req.Body)
+  err := json.Unmarshal(body,&object)
+  if err != nil {
+    logger.Panic("[TempPostHandler] error in JSON")
+  }
+  p,err := strconv.ParseInt(object.P,10,0)
+  if err != nil {
+    logger.Panic("[TempPostHandler] error converting p: %s",err)
+  }
+  q,err := strconv.ParseInt(object.Q,10,0)
+  if err != nil {
+    logger.Panic("[TempPostHandler] error converting q: %s",err)
+  }
+  pair := Pair{int(p),int(q)}
+  logger.Printf("[TempPostHandler] sending pair on channel ...")
+  pchan <- pair
+  logger.Printf("[TempPostHandler] sent pair on channel")
+
+  fmt.Fprintf(rw,"{}")
   logger.Printf("[TempPostHandler] finished")
 }
 
