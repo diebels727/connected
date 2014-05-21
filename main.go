@@ -39,12 +39,10 @@ func main() {
   }();
 
   m := mux.NewRouter()
-  m.HandleFunc("/objects",ObjectsGetHandler).Methods("GET")
-  m.HandleFunc("/objects/{p}/objects/{q}",IsConnectedGetHandler).Methods("GET")
-  m.HandleFunc("/objects/{p}",ObjectPostHandler).Methods("POST")
-  m.HandleFunc("/objects/{p}",TempObjectsGetHandler).Methods("GET")
-  m.HandleFunc("/objects",TempPostHandler).Methods("POST")
-  m.HandleFunc("/objects",OptionsPostHandler).Methods("OPTIONS")
+  m.HandleFunc("/records",GetRecordsHandler).Methods("GET")
+  // m.HandleFunc("/records",PostRecordsHandler).Methods("POST")
+  // m.HandleFunc("/records",OptionsRecordsHandler).Methods("OPTIONS")
+  m.HandleFunc("/records/{id}",ShowRecordsHandler).Methods("GET")
 
   http.ListenAndServe(":9091",m)
 }

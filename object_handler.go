@@ -4,134 +4,101 @@ import (
   "net/http"
   "github.com/gorilla/mux"
   "encoding/json"
-  "io/ioutil"
+  // "io/ioutil"
   "strconv"
   "fmt"
   "strings"
 )
 
-type Object struct {
-  P string
-  Q string
-}
-
-type ParseObject struct {
-  Object Object
-}
-
-type ResponseObject struct {
+type Record struct {
   Id string
-  P string
+  Value string
 }
 
-func TempObjectsGetHandler(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[TempObjectsGetHandler] called")
-
-  logger.Printf("[TempObjectsGetHandler] finished")
+type ParseRecord struct {
+  Record Record
 }
 
-func ObjectsGetHandler(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[ObjectGetHandler] called")
+func GetRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[GetRecords] called")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
 
-  //Ugly, but working
-  var hsh map[string][]ResponseObject
-  var objects []ResponseObject
-  hsh = make(map[string][]ResponseObject)
-  for id,p := range ids {
-    objects = append(objects,ResponseObject{strconv.Itoa(id),strconv.Itoa(p)})
-  }
-  hsh["objects"] = objects
+  var records_with_root map[string][]Record
+  records_with_root = make(map[string][]Record)
 
-  response,err := json.Marshal(&hsh)
+  var records []Record
+
+  for id,value := range ids {
+    records = append(records,Record{strconv.Itoa(id),strconv.Itoa(value)})
+  }
+  records_with_root["records"] = records
+  response,err := json.Marshal(&records_with_root)
   if err != nil {
-    logger.Panic("Cannot marshal!")
+    logger.Panic("[GetRecords] Cannot marshal records.")
   }
-  rsp := strings.ToLower(string(response))
-  //end ugly
 
-  fmt.Fprintf(rw,rsp)
-  logger.Printf("[ObjectGetHandler] finished")
+  response_string := strings.ToLower(string(response))
+
+  fmt.Fprintf(rw,response_string) //output to consumer
+
+  logger.Printf("[GetRecords] finished")
 }
 
-func IsConnectedGetHandler(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[IsConnectedGetHandler] called")
+func ShowRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[ShowRecords] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
+  var record_with_root map[string]Record
+  record_with_root = make(map[string]Record)
   vars := mux.Vars(req)
-  p,err := strconv.ParseInt(vars["p"],10,0)
+  id_string := vars["id"]
+  id,err := strconv.Atoi(id_string)
   if err != nil {
-    logger.Panic("[IsConnectedGetHandler] error converting p")
+    logger.Panic("[ShowRecords] Cannot convert id: %s",err)
   }
-  q,err := strconv.ParseInt(vars["q"],10,0)
+  value := ids[id]
+  record := Record{strconv.Itoa(id),strconv.Itoa(value)}
+  record_with_root["record"] = record
+  response,err := json.Marshal(&record_with_root)
   if err != nil {
-    logger.Panic("[IsConnectedGetHandler] error converting q")
+    logger.Panic("[ShowRecords] Cannot marshal record.")
   }
-
-  pair := Pair{int(p),int(q)}
-  is_connected := connected(pair,ids)
-  logger.Printf("[IsConnectedGetHandler] connected result: %s",is_connected)
-  logger.Printf("[IsConnectedGetHandler] vars: %s",vars)
+  response_string := strings.ToLower(string(response))
+  fmt.Fprintf(rw,response_string) //output to consumer
+  logger.Printf("[ShowRecords] finished")
 }
 
-func TempPostHandler(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[TempPostHandler] called")
-  rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
-  rw.Header().Set("Access-Control-Allow-Origin", "*")
-  rw.Header().Set("Origin","http://localhost:9091")
-  var parse_object ParseObject
-  body, _ := ioutil.ReadAll(req.Body)
-  err := json.Unmarshal(body,&parse_object)
-  if err != nil {
-    logger.Panic("[TempPostHandler] error in JSON")
-  }
-  p,err := strconv.ParseInt(parse_object.Object.P,10,0)
-  if err != nil {
-    logger.Panic("[TempPostHandler] error converting p: %s",err)
-  }
-  q,err := strconv.ParseInt(parse_object.Object.Q,10,0)
-  if err != nil {
-    logger.Panic("[TempPostHandler] error converting q: %s",err)
-  }
-  pair := Pair{int(p),int(q)}
-  logger.Printf("[TempPostHandler] parsed p: %s and q: %s",p,q)
-  logger.Printf("[TempPostHandler] sending pair on channel ...")
-  pchan <- pair
-  logger.Printf("[TempPostHandler] sent pair on channel")
-
-  fmt.Fprintf(rw,"{}")
-  logger.Printf("[TempPostHandler] finished")
-}
-
-func OptionsPostHandler(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[OptionsPostHandler] called")
-  rw.Header().Set("Access-Control-Allow-Origin", "*")
-  rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
-  logger.Printf("[OptionsPostHandler] %s",rw.Header())
-}
-
-
-func ObjectPostHandler(rw http.ResponseWriter,req *http.Request) {
-  logger.Printf("[ObjectPostHandler] called")
-  rw.Header().Set("Access-Control-Allow-Origin", "*")
-  var object Object
-  body, _ := ioutil.ReadAll(req.Body)
-  vars := mux.Vars(req)
-  //Parse JSON
-  err := json.Unmarshal(body,&object)
-  if err != nil {
-    logger.Panic("[ObjectPostHandler] error in JSON")
-  }
-  p,err := strconv.ParseInt(vars["p"],10,0)
-  if err != nil {
-    logger.Panic("[ObjectPostHandler] error converting p")
-  }
-  q,err := strconv.ParseInt(object.Q,10,0)
-  if err != nil {
-    logger.Panic("[ObjectPostHandler] error converting q")
-  }
-
-  pair := Pair{int(p),int(q)}
-  logger.Printf("[ObjectPostHandler] sending pair on channel ...")
-  pchan <- pair
-  logger.Printf("[ObjectPostHandler] sent pair on channel")
-  logger.Printf("[ObjectPostHandler] finished")
-}
+// func PostRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+//   logger.Printf("[TempPostHandler] called")
+//   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+//   rw.Header().Set("Access-Control-Allow-Origin", "*")
+//   rw.Header().Set("Origin","http://localhost:9091")
+//   var parse_object ParseObject
+//   body, _ := ioutil.ReadAll(req.Body)
+//   err := json.Unmarshal(body,&parse_object)
+//   if err != nil {
+//     logger.Panic("[TempPostHandler] error in JSON")
+//   }
+//   p,err := strconv.ParseInt(parse_object.Object.P,10,0)
+//   if err != nil {
+//     logger.Panic("[TempPostHandler] error converting p: %s",err)
+//   }
+//   q,err := strconv.ParseInt(parse_object.Object.Q,10,0)
+//   if err != nil {
+//     logger.Panic("[TempPostHandler] error converting q: %s",err)
+//   }
+//   pair := Pair{int(p),int(q)}
+//   logger.Printf("[TempPostHandler] parsed p: %s and q: %s",p,q)
+//   logger.Printf("[TempPostHandler] sending pair on channel ...")
+//   pchan <- pair
+//   logger.Printf("[TempPostHandler] sent pair on channel")
+//
+//   fmt.Fprintf(rw,"{}")
+//   logger.Printf("[TempPostHandler] finished")
+// }
+//
+// func OptionsRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+//   logger.Printf("[OptionsPostHandler] called")
+//   rw.Header().Set("Access-Control-Allow-Origin", "*")
+//   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+//   logger.Printf("[OptionsPostHandler] %s",rw.Header())
+// }
