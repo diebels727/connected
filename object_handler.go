@@ -4,7 +4,7 @@ import (
   "net/http"
   "github.com/gorilla/mux"
   "encoding/json"
-  // "io/ioutil"
+  "io/ioutil"
   "strconv"
   "fmt"
   "strings"
@@ -67,35 +67,40 @@ func ShowRecordsHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[ShowRecords] finished")
 }
 
-// func PostRecordsHandler(rw http.ResponseWriter,req *http.Request) {
-//   logger.Printf("[TempPostHandler] called")
-//   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
-//   rw.Header().Set("Access-Control-Allow-Origin", "*")
-//   rw.Header().Set("Origin","http://localhost:9091")
-//   var parse_object ParseObject
-//   body, _ := ioutil.ReadAll(req.Body)
-//   err := json.Unmarshal(body,&parse_object)
-//   if err != nil {
-//     logger.Panic("[TempPostHandler] error in JSON")
-//   }
-//   p,err := strconv.ParseInt(parse_object.Object.P,10,0)
-//   if err != nil {
-//     logger.Panic("[TempPostHandler] error converting p: %s",err)
-//   }
-//   q,err := strconv.ParseInt(parse_object.Object.Q,10,0)
-//   if err != nil {
-//     logger.Panic("[TempPostHandler] error converting q: %s",err)
-//   }
-//   pair := Pair{int(p),int(q)}
-//   logger.Printf("[TempPostHandler] parsed p: %s and q: %s",p,q)
-//   logger.Printf("[TempPostHandler] sending pair on channel ...")
-//   pchan <- pair
-//   logger.Printf("[TempPostHandler] sent pair on channel")
-//
-//   fmt.Fprintf(rw,"{}")
-//   logger.Printf("[TempPostHandler] finished")
-// }
-//
+func PostRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[PostRecordsHandler] called")
+  rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
+  //TODO: localhost should not be statically defined; but this works for localhost testing
+  rw.Header().Set("Origin","http://localhost:9091")
+
+  var parse_record ParseRecord
+  body, _ := ioutil.ReadAll(req.Body)
+  err := json.Unmarshal(body,&parse_record)
+  if err != nil {
+    logger.Panic("[PostRecordsHandler] error in JSON: %s",err)
+  }
+
+  id,err := strconv.ParseInt(parse_record.Record.Id,10,0)
+  if err != nil {
+    logger.Panic("[PostRecordsHandler] error converting id: %s",err)
+  }
+  value,err := strconv.ParseInt(parse_record.Record.Value,10,0)
+  if err != nil {
+    logger.Panic("[TempPostHandler] error converting value: %s",err)
+  }
+
+  pair := Pair{int(id),int(value)}
+  logger.Printf("[TempPostHandler] parsed id: %s and value: %s",id,value)
+  logger.Printf("[TempPostHandler] sending pair on channel ...")
+  pchan <- pair
+  logger.Printf("[TempPostHandler] sent pair on channel")
+
+  fmt.Fprintf(rw,"{}") //empty content response; ember seemed to complain
+
+  logger.Printf("[TempPostHandler] finished")
+}
+
 func OptionsRecordsHandler(rw http.ResponseWriter,req *http.Request) {
   logger.Printf("[OptionsRecordsHandler] called")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
