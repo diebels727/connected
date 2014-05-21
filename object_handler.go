@@ -96,9 +96,9 @@ func ShowRecordsHandler(rw http.ResponseWriter,req *http.Request) {
 //   logger.Printf("[TempPostHandler] finished")
 // }
 //
-// func OptionsRecordsHandler(rw http.ResponseWriter,req *http.Request) {
-//   logger.Printf("[OptionsPostHandler] called")
-//   rw.Header().Set("Access-Control-Allow-Origin", "*")
-//   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
-//   logger.Printf("[OptionsPostHandler] %s",rw.Header())
-// }
+func OptionsRecordsHandler(rw http.ResponseWriter,req *http.Request) {
+  logger.Printf("[OptionsRecordsHandler] called")
+  rw.Header().Set("Access-Control-Allow-Origin", "*")
+  rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
+  logger.Printf("[OptionsRecordsHandler] %s",rw.Header())
+}

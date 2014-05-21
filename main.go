@@ -41,7 +41,7 @@ func main() {
   m := mux.NewRouter()
   m.HandleFunc("/records",GetRecordsHandler).Methods("GET")
   // m.HandleFunc("/records",PostRecordsHandler).Methods("POST")
-  // m.HandleFunc("/records",OptionsRecordsHandler).Methods("OPTIONS")
+  m.HandleFunc("/records",OptionsRecordsHandler).Methods("OPTIONS")
   m.HandleFunc("/records/{id}",ShowRecordsHandler).Methods("GET")
 
   http.ListenAndServe(":9091",m)
