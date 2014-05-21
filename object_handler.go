@@ -15,6 +15,10 @@ type Object struct {
   Q string
 }
 
+type ParseObject struct {
+  Object Object
+}
+
 type ResponseObject struct {
   Id string
   P string
@@ -67,21 +71,22 @@ func TempPostHandler(rw http.ResponseWriter,req *http.Request) {
   rw.Header().Set("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept")
   rw.Header().Set("Access-Control-Allow-Origin", "*")
   rw.Header().Set("Origin","http://localhost:9091")
-  var object Object
+  var parse_object ParseObject
   body, _ := ioutil.ReadAll(req.Body)
-  err := json.Unmarshal(body,&object)
+  err := json.Unmarshal(body,&parse_object)
   if err != nil {
     logger.Panic("[TempPostHandler] error in JSON")
   }
-  p,err := strconv.ParseInt(object.P,10,0)
+  p,err := strconv.ParseInt(parse_object.Object.P,10,0)
   if err != nil {
     logger.Panic("[TempPostHandler] error converting p: %s",err)
   }
-  q,err := strconv.ParseInt(object.Q,10,0)
+  q,err := strconv.ParseInt(parse_object.Object.Q,10,0)
   if err != nil {
     logger.Panic("[TempPostHandler] error converting q: %s",err)
   }
   pair := Pair{int(p),int(q)}
+  logger.Printf("[TempPostHandler] parsed p: %s and q: %s",p,q)
   logger.Printf("[TempPostHandler] sending pair on channel ...")
   pchan <- pair
   logger.Printf("[TempPostHandler] sent pair on channel")
